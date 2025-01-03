@@ -44,11 +44,9 @@ git config로 설정했던 name, email을 unset 해준 뒤 다시 재등록해�
 
 <br>
 
----
-
 # 📌 Git Bash로 SSH Key 설정 및 Github 연동 과정 정리
 
-### 1. SSH 키 생성 및 등록
+## 1. SSH 키 생성 및 등록
 
 ### 명령어 실행
 
@@ -84,9 +82,7 @@ cat id_ed25519.pub
 
 3. 위 명령어에서 복사한 공개 키(`id_ed25519.pub`) 내용을 붙여넣고 저장.
 
-- --
-
-### 2. Git 작업 흐름
+## 2. Git 작업 흐름
 
 ### 명령어 실행
 
@@ -118,7 +114,7 @@ git push origin main
 
 ```
 
-### **3. Git 설정 초기화 및 재설정**
+## **3. Git 설정 초기화 및 재설정**
 
 ### **기존 설정 삭제**
 
@@ -150,6 +146,6 @@ git config --global user.email 깃허브에연동된이메일
 
 <br>
 
-## 📖 참고 자료
+# 📖 참고 자료
 
 [https://hoozy.tistory.com/entry/GIT-GIT-BASH로-SSH-연결-후-프로젝트-PUSH](https://hoozy.tistory.com/entry/GIT-GIT-BASH%EB%A1%9C-SSH-%EC%97%B0%EA%B2%B0-%ED%9B%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-PUSH)
