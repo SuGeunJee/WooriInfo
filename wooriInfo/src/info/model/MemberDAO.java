@@ -30,7 +30,7 @@ public class MemberDAO {
 	}
 
 	// 이름으로 해당 멤버의 모든 정보 반환
-	public static ArrayList<MemberDTO> getsMemberByName(String name) throws SQLException {
+	public static ArrayList<MemberDTO> getMembersByName(String name) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -61,7 +61,7 @@ public class MemberDAO {
 		return members;
 	}
 
-	// 등하교 메이트 구하는(O) 멤버의 노트북 번호, 이름 조회
+	// 등하교 메이트 구하는 멤버의 노트북 번호, 이름 반환
 	public static ArrayList<CommuteMateDTO> getMembersLaptopNumberAndNameByMateStatus() throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
