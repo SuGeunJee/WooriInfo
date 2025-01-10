@@ -1,0 +1,6 @@
+db.properties
+/bin/
+/.settings/
+.classpath
+.project
+/target/
