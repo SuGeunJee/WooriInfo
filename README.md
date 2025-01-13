@@ -1,9 +1,66 @@
-# WooriInfo
+# WOORI INFO - 학생 정보 관리 시스템 🎓
 
-## 📝 README : 팀원의 첫인상과 식사 후 현인상 작성
+## 📝 프로젝트 소개
+WOORI INFO는 학생들을 위한 정보 관리 시스템입니다. 학생들의 기본 정보, 목표, 스터디 희망 분야 등을 관리하고, 등하교 메이트 매칭 기능을 제공합니다.
+
+## 🌟 주요 기능
+1. **전체 사용자 정보 조회**
+   - 전체 사용자의 모든 프로필 정보를 출력한다.
+
+2. **특정 사용자 정보 조회**
+   - 이름으로 사용자 프로필 정보 조회
+   - 등하교 메이트 희망자 정보 조회
+
+3. **내 정보 관리**
+   - 개인 프로필 정보 추가 
+   - 개인 프로필 정보 조회 및 수정 삭제
+   - 노트북 번호를 통한 고유 식별
+
+4. **보안**
+   - 정보 수정/삭제 시 비밀번호 인증
+   - BCrypt를 활용한 비밀번호 암호화
+
+## 🛠 기술 스택
+- **언어:** Java
+- **데이터베이스:** MySQL
+- **보안:** BCrypt
+- **빌드 도구:** Maven
+- **개발 환경:** 
+  - Spring Tool Suite (STS)
+  - DBeaver
+  - Git
+  - Notion
+- **라이브러리:**
+  - Lombok
+  - JDBC
+  - jBCrypt
+
+## 📁 프로젝트 구조
+```plaintext
+src/  
+├── 📂 info/  
+│   ├── 📂 controller/  
+│   │   └── 🎮 MemberController.java  
+│   ├── 📂 exception/  
+│   │   └── ⚠️ NotExistException.java  
+│   ├── 📂 model/  
+│   │   ├── 🛠️ MemberDAO.java  
+│   │   ├── 📂 dto/  
+│   │   │   ├── 📄 MemberDTO.java  
+│   │   │   ├── 📄 MemberInfoDTO.java  
+│   │   │   ├── 📄 CommuteMateDTO.java  
+│   │   │   └── 👑 Role.java  
+│   │   └── 📂 util/
+│   │       └── ⚙️ DBUtil.java  
+│   └── 📂 view/  
+│       ├── 🖥 RunningStartView.java  
+│       └── 📺 RunningEndView.java  
+```
+
+<details>
+  <summary><b>팀원의 첫인상과 식사 후 현인상</b></summary>
 
 ### 😊 지수근
-
 - 최다영 : 성격이 온화해 보이셨다. → 의외로 활발하시고 첫 인상처럼 성격이 온화하시다.
 - 최윤정 : 차분하고 신중해 보였다. → 맛집 얘기할 때 진심이 느껴진다.
 - 한정현 : 책임감이 강해 보였다. → 생각보다 말씀도 많으시고 재밌으시다.
@@ -25,7 +82,10 @@
 - 지수근 :  스마트한 이미지가 있다. → 굉장히 친절하시고 모르는걸 잘 알려주신다.
 - 최윤정 : 밝고 성격이 좋을 것 같다. → 꼼꼼하고 똑순이 같다.
 - 최다영 :  착하시고 뭔가 다람쥐 같은 이미지가 있다. → 착한 다람쥐 같다.
-
+</details>
+<br>
+<details>
+  <summary><b>Git Bash SSH 설정 및 회고</b></summary>
 <br>
 
 # 👀 회고록
@@ -94,7 +154,7 @@ git clone git@github.com:lalalarr/WooriInfo.git
 
 # 클론한 디렉토리로 이동
 
-cd /c/02.mission/WooriInfo
+cd /c/WooriInfo
 
 # 파일 변경 후 추가
 
@@ -149,3 +209,4 @@ git config --global user.email 깃허브에연동된이메일
 # 📖 참고 자료
 
 [https://hoozy.tistory.com/entry/GIT-GIT-BASH로-SSH-연결-후-프로젝트-PUSH](https://hoozy.tistory.com/entry/GIT-GIT-BASH%EB%A1%9C-SSH-%EC%97%B0%EA%B2%B0-%ED%9B%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-PUSH)
+</details>
