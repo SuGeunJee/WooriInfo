@@ -17,7 +17,7 @@ public class RunningEndView {
 			AtomicInteger count = new AtomicInteger(1);
 			
 			memberList.stream()
-					.forEach(p -> System.out.println("\n------- " + count.getAndIncrement() + "번" + " -------\n" + p));
+					.forEach(p -> System.out.println("\n  [" + count.getAndIncrement() + "번]" + "\n" + p));
 		} else {
 			System.out.println("검색 정보 0");
 		}
@@ -31,7 +31,7 @@ public class RunningEndView {
 			int count = 1;
 			for (CommuteMateDTO p : memberList) {
 				// 정상 종료시 count 변수값 1 증가
-				System.out.println("\n------- " + (count++) + "번" + " -------\n" + p);
+				System.out.println("\n  [" + (count++) + "번]" + "\n" + p);
 			}
 		} else {
 			System.out.println("검색 정보 0");
