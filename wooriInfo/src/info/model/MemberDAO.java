@@ -139,7 +139,7 @@ public class MemberDAO {
 
 		try {
 			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement("select laptop_number, name from member where mate_status=?");
+			pstmt = con.prepareStatement("select laptop_number, name, address from member where mate_status=?");
 			pstmt.setBoolean(1, true);
 			rset = pstmt.executeQuery();
 			members = new ArrayList<CommuteMateDTO>();
@@ -148,6 +148,7 @@ public class MemberDAO {
 				members.add(CommuteMateDTO.builder()
 						.laptopNumber(rset.getString(1))
 						.name(rset.getString(2))
+						.address(rset.getString(3))
 						.build());
 			}
 		} finally {

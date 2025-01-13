@@ -11,9 +11,10 @@ public class RunningStartView {
 	}
 
 	public void run() {
+		printProgram();
 		while (true) {
 			printMenu();
-			int choice = getUserInput("메뉴를 선택하세요 (0-3): ");
+			int choice = getUserInput("\n --> 메뉴를 선택하세요 (0-3): ");
 
 			switch (choice) {
 			case 1 -> viewAllMembers();
@@ -27,20 +28,25 @@ public class RunningStartView {
 			}
 		}
 	}
+	
+	private void printProgram() {
+		System.out.println("\n\n=================================================");
+		System.out.println("\n\t🎉🎈 안녕하세요! WOORI INFO 입니다. 🎈🎉");
+		System.out.println("📚✏️ 궁금했던 클라우드 엔지니어링 친구들 정보를 확인해보세요! ✏️📚");
+		System.out.println("    ✨😎 함께하면 더 즐거운 우리 반 정보 관리 시작! ✨😎");
+		System.out.println("\n=================================================");
+	}
 
 	private void printMenu() {
-		System.out.println("\n🎉🎈 안녕하세요! WOORI INFO 입니다. 🎈🎉");
-		System.out.println("📚✏️ 궁금했던 클라우드 엔지니어링 친구들 정보를 확인해보세요! ✏️📚");
-		System.out.println("✨😎 함께하면 더 즐거운 우리 반 정보 관리 시작! ✨😎");
-		System.out.println("\n[  🏫 우리 반 프로필 시스템 🏫  ]");
+		System.out.println("\n\n\n[  🏫 우리 반 프로필 시스템 🏫  ]");
 		System.out.println("===========================");
-		System.out.println("  1. 친구들 정보 ✨");
+		System.out.println("  1. 모든 친구들 정보 ✨");
 		System.out.println("---------------------------");
-		System.out.println("  2. 궁금한 친구 정보 👀");
+		System.out.println("  2. 궁금한 친구들 정보 😎");
 		System.out.println("---------------------------");
 		System.out.println("  3. 내 정보 👀");
 		System.out.println("---------------------------");
-		System.out.println("  0. 프로그램 종료 👀");
+		System.out.println("  0. 프로그램 종료 ");
 		System.out.println("===========================");
 	}
 
@@ -72,7 +78,7 @@ public class RunningStartView {
 		System.out.println("2. 등하교 메이트가 있는 친구 검색 🚶");
 		System.out.println("0. 이전 메뉴로 돌아가기");
 
-		int subChoice = getUserInput("검색 옵션을 선택하세요 (0-2): ");
+		int subChoice = getUserInput("\n --> 검색 옵션을 선택하세요 (0-2): ");
 		switch (subChoice) {
 		case 1 -> searchByName();
 		case 2 -> searchByMateStatusO();
@@ -94,7 +100,9 @@ public class RunningStartView {
 		System.out.println("\n=== 결과: 등하교 메이트가 있는 친구 목록 ===");
 		// 등하교 메이트가 있는 친구(O) 검색 로직
 		MemberController.viewMembersLaptopAndNameByMateStatus();
-		System.out.println("등하교 메이트가 있는 친구를 출력합니다.");
+		System.out.println("\n\n등하교 메이트가 있는 친구들 출력했습니다!");
+		System.out.println("------------------------------");
+		
 	}
 
 	private void viewMyInfo() {
@@ -105,12 +113,13 @@ public class RunningStartView {
 		// 노트북 번호로 멤버 조회
 		if (MemberController.checkLaptopNumber(notebookNumber)) {
 			// 결과가 True인 경우, 조회, 수정, 삭제, 뒤로 기능 필요
-			System.out.println("1. 내 정보 조회하기");
+			System.out.println("\n1. 내 정보 조회하기");
 			System.out.println("2. 내 정보 수정하기");
 			System.out.println("3. 내 정보 삭제하기");
 			System.out.println("0. 이전 메뉴로 돌아가기");
 
-			int subChoice = getUserInput("원하는 기능을 선택하세요 (0-3): ");
+			int subChoice = getUserInput("\n --> 원하는 기능을 선택하세요 (0-3): \n");
+			System.out.println("  [내 정보]");
 			
 			switch (subChoice) {
 			case 1 -> MemberController.viewMemberByLaptop(notebookNumber);
@@ -120,10 +129,11 @@ public class RunningStartView {
 			default -> System.out.println("잘못된 선택입니다. 다시 시도해주세요.");
 			}
 		} else {
+			System.out.println("== 해당 번호는 존재하지 않습니다. 내 정보를 추가해주세요! ==\n");
 			System.out.println("1. 내 정보 추가하기");
 			System.out.println("0. 이전 메뉴로 돌아가기");
 			// 결과가 False인 경우, 추가, 뒤로 기능 필요
-			int subChoice = getUserInput("원하는 기능을 선택하세요 (0-1): ");
+			int subChoice = getUserInput("\n --> 원하는 기능을 선택하세요 (0-1): ");
 			switch (subChoice) {
 			case 1 -> addMyInfo(notebookNumber);
 			case 0 -> System.out.println("이전 메뉴로 돌아갑니다.");
@@ -134,16 +144,16 @@ public class RunningStartView {
 
 	// 수정 눌렀을 때
 	private void updateMyInfo(String notebookNumber) {
-		System.out.println("수정할 항목을 선택하세요.");
+		System.out.println("\n== 수정할 항목을 선택하세요. ==\n");
 		System.out.println("1. 이름 수정");
 		System.out.println("2. 주소 수정");
 		System.out.println("3. 등하교 메이트 희망 수정");
 		System.out.println("4. 핸드폰 번호 수정");
 		System.out.println("5. 2025년 목표 수정");
 		System.out.println("6. 희망하는 스터디 수정");
-		System.out.println("0. 이전 메뉴로 돌아가기");
+		System.out.println("0. 이전 메뉴로 돌아가기\n");
 
-		int subChoice = getUserInput("수정할 항목을 선택하세요 (0-6): ");
+		int subChoice = getUserInput(" --> 수정할 항목을 선택하세요 (0-6): ");
 		String password = getUserInputString("당신의 비밀번호를 입력하세요.: ");
 		switch (subChoice) {
 		case 1 -> updateName(notebookNumber, password);
@@ -174,7 +184,7 @@ public class RunningStartView {
 		String phoneNumber = getUserInputString("핸드폰 번호를 입력하세요: ");
 		String goal2025 = getUserInputString("2025년 목표를 입력하세요: ");
 		String desiredStudy = getUserInputString("희망하는 스터디를 입력하세요: ");
-		String password = getUserInputString("비밀번호를 입력하세요: ");
+		String password = getUserInputString("비밀번호를 입력하세요 (삭제/수정시 사용): ");
 		
 		// DB에 추가하는 로직 (임시 로직)
 		System.out.println("\n입력한 정보는 다음과 같습니다:");
@@ -192,59 +202,59 @@ public class RunningStartView {
 		}
 		MemberInfoDTO newMember = new MemberInfoDTO(notebookNumber, name, address, commuteMateBool, phoneNumber, goal2025, desiredStudy, password);
 		MemberController.addMember(newMember);
-		System.out.println("내 정보가 추가되었습니다.");
+		System.out.println("\n[내 정보가 추가되었습니다.]");
 	}
 
 	private void updateName(String notebookNumber, String password) {
 		String newName = getUserInputString("새로운 이름을 입력하세요: ");
 		if (MemberController.updateName(notebookNumber, newName, password)) {
-			System.out.println("이름이 성공적으로 수정되었습니다.");
+			System.out.println("\n[이름이 성공적으로 수정되었습니다.]");
 		} else {
-			System.out.println("이름 수정에 실패했습니다.");
+			System.out.println("[이름 수정에 실패했습니다.]");
 		}
 	}
 
 	private void updateAddress(String notebookNumber, String password) {
 		String newAddress = getUserInputString("새로운 주소를 입력하세요: ");
 		if (MemberController.updateAddress(notebookNumber, newAddress, password)) {
-			System.out.println("주소가 성공적으로 수정되었습니다.");
+			System.out.println("\n[주소가 성공적으로 수정되었습니다.]");
 		} else {
-			System.out.println("주소 수정에 실패했습니다.");
+			System.out.println("[주소 수정에 실패했습니다.]");
 		}
 	}
 
 	private void updateCommuteMate(String notebookNumber, String password) {
 		if (MemberController.updateMateStatus(notebookNumber, true, password)) {
-			System.out.println("등하교 메이트 희망이 성공적으로 수정되었습니다.");
+			System.out.println("\n[등하교 메이트 희망이 성공적으로 수정되었습니다.]");
 		} else {
-			System.out.println("등하교 메이트 희망 수정에 실패했습니다.");
+			System.out.println("[등하교 메이트 희망 수정에 실패했습니다.]");
 		}
 	}
 
 	private void updatePhoneNumber(String notebookNumber, String password) {
 		String newPhoneNumber = getUserInputString("새로운 핸드폰 번호를 입력하세요: ");
 		if (MemberController.updatePhoneNumber("phone_number", newPhoneNumber, notebookNumber)) {
-			System.out.println("핸드폰 번호가 성공적으로 수정되었습니다.");
+			System.out.println("\n[핸드폰 번호가 성공적으로 수정되었습니다.]");
 		} else {
-			System.out.println("핸드폰 번호 수정에 실패했습니다.");
+			System.out.println("[핸드폰 번호 수정에 실패했습니다.]");
 		}
 	}
 
 	private void updateGoal(String notebookNumber, String password) {
 		String newGoal = getUserInputString("새로운 2025년 목표를 입력하세요: ");
 		if (MemberController.updateGoal(notebookNumber, newGoal, password)) {
-			System.out.println("2025년 목표가 성공적으로 수정되었습니다.");
+			System.out.println("\n[2025년 목표가 성공적으로 수정되었습니다.]");
 		} else {
-			System.out.println("2025년 목표 수정에 실패했습니다.");
+			System.out.println("[2025년 목표 수정에 실패했습니다.]");
 		}
 	}
 
 	private void updateDesiredStudy(String notebookNumber, String password) {
 		String newDesiredStudy = getUserInputString("새로운 희망하는 스터디를 입력하세요: ");
 		if (MemberController.updateDesiredStudy(notebookNumber, newDesiredStudy, password)) {
-			System.out.println("희망하는 스터디가 성공적으로 수정되었습니다.");
+			System.out.println("\n[희망하는 스터디가 성공적으로 수정되었습니다.]");
 		} else {
-			System.out.println("희망하는 스터디 수정에 실패했습니다.");
+			System.out.println("[희망하는 스터디 수정에 실패했습니다.]");
 		}
 	}
 
@@ -254,8 +264,9 @@ public class RunningStartView {
 		String deleteYN = getUserInputString("정말로 삭제 하시겠습니까? (Y/N) ");
 		if (deleteYN.toUpperCase().equals("Y")) {
 			MemberController.deleteMember(notebookNumber, password);
+			System.out.println("\n [삭제 완료되었습니다.]");
 		} else {
-			System.out.println("삭제 취소!");
+			System.out.println("\n [삭제를 취소 하셨습니다.] ");
 		}
 	}
 //	private boolean updateFieldInDB(String fieldName, String newValue, String notebookNumber, String password) {

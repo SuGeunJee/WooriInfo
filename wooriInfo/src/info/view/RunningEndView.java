@@ -16,11 +16,11 @@ public class RunningEndView {
 			
 			for(MemberDTO p : memberList) {
 				// ; 정상 종료시 count 변수값 1 증가
-				System.out.println("\n------- " + (count++)+"번" + " -------\n" + p); 
+				System.out.println("\n [" + (count++)+"번]" + "     \n" + p); 
 			} 
 			
 		}else {
-			System.out.println("검색 정보 0");
+			System.out.println("\n해당 정보는 존재하지 않습니다.");
 		}
 	}
 	
@@ -33,11 +33,11 @@ public class RunningEndView {
 			
 			for(CommuteMateDTO p : memberList) {
 				// ; 정상 종료시 count 변수값 1 증가
-				System.out.println("\n------- " + (count++)+"번" + " -------\n" + p); 
+				System.out.println("\n--------- [" + (count++)+"번]" + " ---------\n" + p); 
 			} 
 			
 		}else {
-			System.out.println("검색 정보 0");
+			System.out.println("\n해당 정보는 존재하지 않습니다.");
 		}
 	}
 	
