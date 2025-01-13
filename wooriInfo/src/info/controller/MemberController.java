@@ -6,8 +6,22 @@ import java.util.ArrayList;
 import info.model.MemberDAO;
 import info.model.dto.MemberDTO;
 import info.model.dto.MemberInfoDTO;
+import info.view.RunningEndView;
 
 public class MemberController {
+	
+	// 노트북 번호 DB 존재 여부 검증 로직
+	public static boolean checkLaptopNumber(String laptopNumber) {
+		boolean result = false;
+		try {
+			result = MemberDAO.checkLaptopNumber(laptopNumber);
+		} catch (SQLException s) {
+			s.printStackTrace();
+//			/RunningEndView.showError("새로운 멤버 저장 시 에러 발생");
+		}
+		return result;	
+	}
+	
 	// 새로운 멤버 저장 로직
 	public static boolean addMember(MemberInfoDTO memberinfoDto) {
 		boolean result = false;
@@ -24,37 +38,39 @@ public class MemberController {
 	// 모든 멤버 검색 로직
 	public static void getAllMembers() {
 		try {
-			MemberDAO.getAllMembers();
+			RunningEndView.memberListView(MemberDAO.getAllMembers());
 		} catch (SQLException s) {
-			s.printStackTrace();
-			// RunningEndView.showError("모든 멤버 검색 시 에러 발생");
+			RunningEndView.showError("모든 멤버 검색 시 에러 발생");
 		}
 	}
 
 	// 노트북 번호로 해당 멤버의 모든 정보 검색
 	public static void viewMemberByLaptop(String laptopNumber) {
 		try {
-			MemberDAO.getMemberByLaptopNumber(laptopNumber);
+			RunningEndView.memberView(MemberDAO.getMemberByLaptopNumber(laptopNumber));
 		} catch (SQLException e) {
 			e.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 해당 멤버의 모든 정보 검색 시 에러 발생");
+			RunningEndView.showError("노트북 번호로 해당 멤버의 모든 정보 검색 시 에러 발생");
 		}
+//		} catch (NotExistException x) {
+//			RunningEndView.showError("등록되지 않은 멤버입니다.");
+//		}
 	}
 
 	// 이름으로 해당 멤버의 모든 정보 검색
 	public static void viewMembersByName(String name) {
 		try {
-			MemberDAO.getMembersByName(name);
+			RunningEndView.memberListView(MemberDAO.getMembersByName(name)); 
 		} catch (SQLException e) {
-			e.printStackTrace();
-			// RunningEndView.showError("이름으로 해당 멤버의 모든 정보 검색 시 에러 발생");
+			//e.printStackTrace();
+			RunningEndView.showError("이름으로 해당 멤버의 모든 정보 검색 시 에러 발생");
 		}
 	}
 
 	// 등하교 메이트 구하는 멤버의 노트북 번호, 이름 검색
 	public static void viewMembersLaptopAndNameByMateStatus() {
 		try {
-			MemberDAO.getMembersLaptopNumberAndNameByMateStatus();
+			RunningEndView.CommuteMateMemberListView(MemberDAO.getMembersLaptopNumberAndNameByMateStatus());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			// RunningEndView.showError("등하교 메이트 구하는 멤버의 노트북 번호, 이름 검색 시 에러 발생");
