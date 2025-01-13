@@ -1,15 +1,18 @@
 # WOORI INFO - 학생 정보 관리 시스템 🎓
 
-## 📝 프로젝트 소개
-WOORI INFO는 학생들을 위한 정보 관리 시스템입니다. 학생들의 기본 정보, 목표, 스터디 희망 분야 등을 관리하고, 등하교 메이트 매칭 기능을 제공합니다.
+## 📝 WOORI INFO 시스템 소개
+학생들을 위한 정보 관리 시스템 
+학생들의 기본 정보, 목표, 스터디 희망 분야 등을 관리하고, 등하교 메이트 매칭 기능을 제공
 
 ## 🌟 주요 기능
-1. **전체 사용자 정보 조회**
-   - 전체 사용자의 모든 프로필 정보를 출력한다.
+![image (2)](https://github.com/user-attachments/assets/a57cf4d0-bc40-403f-88d2-e5ec46def51a)
+1. **모든 친구들 정보 조회**
+   - 전체 친구들 프로필 정보 조회
 
-2. **특정 사용자 정보 조회**
-   - 이름으로 사용자 프로필 정보 조회
-   - 등하교 메이트 희망자 정보 조회
+2. **궁금한 친구들 정보 조회**
+   - 궁금한 친구 이름으로 조회
+   - 등하교 메이트를 희망하는 친구 조회
+   - 모든 친구들의 이름과 주소 조회
 
 3. **내 정보 관리**
    - 개인 프로필 정보 추가 
@@ -18,22 +21,21 @@ WOORI INFO는 학생들을 위한 정보 관리 시스템입니다. 학생들의
 
 4. **보안**
    - 정보 수정/삭제 시 비밀번호 인증
-   - BCrypt를 활용한 비밀번호 암호화
+   - BCrypt를 활용한 비밀번호 암호화 
+
+## 🛠 시스템 아키텍처
+![image (3)](https://github.com/user-attachments/assets/19fc3268-ccce-43e3-8b69-ec4e78eccd6d)
+## 🛠 DB ERD
+![image (1)](https://github.com/user-attachments/assets/be80f25a-7917-4495-89c8-bf0152b6e456)
 
 ## 🛠 기술 스택
 - **언어:** Java
 - **데이터베이스:** MySQL
 - **보안:** BCrypt
 - **빌드 도구:** Maven
-- **개발 환경:** 
-  - Spring Tool Suite (STS)
-  - DBeaver
-  - Git
-  - Notion
-- **라이브러리:**
-  - Lombok
-  - JDBC
-  - jBCrypt
+- **개발 환경:** Spring Tool Suite (STS) / DBeaver
+- **협업툴:** Git / Notion / Slack / Discord
+- **라이브러리:** Lombok / JDBC / jBCrypt
 
 ## 📁 프로젝트 구조
 ```plaintext
@@ -58,7 +60,7 @@ src/
 ```
 
 <details>
-  <summary><b>팀원의 첫인상과 식사 후 현인상</b></summary>
+  <summary><b>팀원의 첫인상과 대화를 나눈 후의 느낌</b></summary>
 
 ### 😊 지수근
 - 최다영 : 성격이 온화해 보이셨다. → 의외로 활발하시고 첫 인상처럼 성격이 온화하시다.
@@ -84,12 +86,10 @@ src/
 - 최다영 :  착하시고 뭔가 다람쥐 같은 이미지가 있다. → 착한 다람쥐 같다.
 </details>
 <br>
-<details>
-  <summary><b>Git Bash SSH 설정 및 회고</b></summary>
-<br>
 
-# 👀 회고록
-## 💥 발생한 문제
+# 📌 트러블 슈팅
+
+## 💥 이슈 1. Git Push 오류
 
 상황
 
@@ -102,9 +102,8 @@ src/
 
 git config로 설정했던 name, email을 unset 해준 뒤 다시 재등록해주니 push가 되었다. 혹시 오타가 있을 수 있으니, 본인의 깃허브에 들어가 복사해서 붙여넣기 하는 것을 추천한다.
 
-<br>
-
-# 📌 Git Bash로 SSH Key 설정 및 Github 연동 과정 정리
+<details>
+  <summary><b> Git Bash로 SSH Key 설정 및 Github 연동 과정 정리</b></summary>
 
 ## 1. SSH 키 생성 및 등록
 
@@ -210,3 +209,21 @@ git config --global user.email 깃허브에연동된이메일
 
 [https://hoozy.tistory.com/entry/GIT-GIT-BASH로-SSH-연결-후-프로젝트-PUSH](https://hoozy.tistory.com/entry/GIT-GIT-BASH%EB%A1%9C-SSH-%EC%97%B0%EA%B2%B0-%ED%9B%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-PUSH)
 </details>
+
+## 💥 이슈 2. 빈 디렉토리 Push 문제
+
+상황
+- JAVA 프로젝트를 생성하고, controller, view, model package를 만든 후 Git에 Push 했을 때 저장소에 Push가 정상적으로 되지 않았다.
+
+## ✔ 해결한 방법
+
+Git에서는 기본적으로 추적할 파일이 없는 빈 디렉토리를 추적하지 않기 때문에 생성한 package 구조를 유지하기 위해서는 Git에서 추적할 파일이 필요하다. 이를 위해 각 비어있는 packag에 .gitkeep 파일을 생성한 후 Push 했다.
+```
+# 비어있는 폴더도 git에 올라가도록 하기
+$ touch src/info/controller/.gitkeep
+$ touch wooriInfo/src/info/model/dto/.gitkeep
+$ touch wooriInfo/src/info/model/util/.gitkeep
+$ touch wooriInfo/src/info/view/.gitkeep
+```
+<br>
+
