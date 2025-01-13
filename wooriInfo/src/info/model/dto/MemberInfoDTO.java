@@ -1,6 +1,7 @@
 package info.model.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +17,4 @@ public class MemberInfoDTO {
     private String goal; // 2025년 목표
     private String desiredStudy; // 희망하는 스터디 분야
     private String password; // 비밀번호
-    private Role role; // 역할
 }

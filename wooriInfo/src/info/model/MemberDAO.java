@@ -11,6 +11,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import info.model.dto.CommuteMateDTO;
 import info.model.dto.MemberDTO;
 import info.model.dto.MemberInfoDTO;
+import info.model.dto.Role;
 import info.model.util.DBUtil;
 
 public class MemberDAO {
@@ -30,7 +31,7 @@ public class MemberDAO {
 			pstmt.setString(6, memberinfoDto.getGoal());
 			pstmt.setString(7, memberinfoDto.getDesiredStudy());
 			pstmt.setString(8, BCrypt.hashpw(memberinfoDto.getPassword(), BCrypt.gensalt())); 
-			pstmt.setString(9, memberinfoDto.getRole().toString());
+			pstmt.setString(9, Role.사용자.toString());
 			
 			int result = pstmt.executeUpdate();
 			if (result == 1) {
@@ -334,6 +335,30 @@ public class MemberDAO {
 	        if (rs.next()) {
 	            String hashedPassword = rs.getString("password");
 	            return BCrypt.checkpw(password, hashedPassword); // BCrypt의 checkpw 메소드 사용
+	        }
+	        return false;
+	        
+	    } finally {
+	        DBUtil.close(con, pstmt, rs);
+	    }
+	}
+	
+	//노트북 번호가 DB에 있는지 없는지 확인
+	public static boolean checkLaptopNumber(String laptopNumber) throws SQLException {
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    
+	    try {
+	        con = DBUtil.getConnection();
+	        
+	        pstmt = con.prepareStatement("SELECT laptop_number FROM member WHERE laptop_number=?");
+	        pstmt.setString(1, laptopNumber);
+	        
+	        rs = pstmt.executeQuery();
+	        
+	        if (rs.next()) {
+	        	return true;
 	        }
 	        return false;
 	        
