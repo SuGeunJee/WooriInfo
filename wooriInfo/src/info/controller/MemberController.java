@@ -9,7 +9,7 @@ import info.model.dto.MemberInfoDTO;
 import info.view.RunningEndView;
 
 public class MemberController {
-	
+
 	// 노트북 번호 DB 존재 여부 검증 로직
 	public static boolean checkLaptopNumber(String laptopNumber) {
 		boolean result = false;
@@ -19,9 +19,9 @@ public class MemberController {
 			s.printStackTrace();
 //			/RunningEndView.showError("새로운 멤버 저장 시 에러 발생");
 		}
-		return result;	
+		return result;
 	}
-	
+
 	// 새로운 멤버 저장 로직
 	public static boolean addMember(MemberInfoDTO memberinfoDto) {
 		boolean result = false;
@@ -44,6 +44,24 @@ public class MemberController {
 		}
 	}
 
+	// 모든 멤버의 이름과 주소 정보 검색
+	public static void getAllMembersNameAndAddress() {
+		try {
+			RunningEndView.memberNamesAndAddressesView(MemberDAO.getAllMembers());
+		} catch (SQLException s) {
+			RunningEndView.showError("모든 멤버 검색 시 에러 발생");
+		}
+	}
+
+	// 모든 멤버의 이름과 주소 정보 검색
+	public static void getAllMembersNamesAndPhoneNumbers() {
+		try {
+			RunningEndView.memberNamesAndPhoneNumbersView(MemberDAO.getAllMembers());
+		} catch (SQLException s) {
+			RunningEndView.showError("모든 멤버 검색 시 에러 발생");
+		}
+	}
+
 	// 노트북 번호로 해당 멤버의 모든 정보 검색
 	public static void viewMemberByLaptop(String laptopNumber) {
 		try {
@@ -60,9 +78,9 @@ public class MemberController {
 	// 이름으로 해당 멤버의 모든 정보 검색
 	public static void viewMembersByName(String name) {
 		try {
-			RunningEndView.memberListView(MemberDAO.getMembersByName(name)); 
+			RunningEndView.memberListView(MemberDAO.getMembersByName(name));
 		} catch (SQLException e) {
-			//e.printStackTrace();
+			// e.printStackTrace();
 			RunningEndView.showError("이름으로 해당 멤버의 모든 정보 검색 시 에러 발생");
 		}
 	}

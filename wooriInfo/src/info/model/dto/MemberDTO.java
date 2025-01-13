@@ -1,5 +1,7 @@
 package info.model.dto;
 
+import java.util.Optional;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,15 +29,15 @@ public class MemberDTO {
 		builder.append("\n2. 이름 : ");
 		builder.append(name);
 		builder.append("\n3. 주소 : ");
-		builder.append(address);
+		builder.append(Optional.ofNullable(address).orElse("-"));
 		builder.append("\n4. 등하교 메이트 희망 여부 (O: 원함, X: 원하지 않음) : ");
-		builder.append(mateStatus);
+		builder.append(mateStatus ? "O" : "X");
 		builder.append("\n5. 전화번호 : ");
-		builder.append(phoneNumber);
+		builder.append(Optional.ofNullable(phoneNumber).orElse("-"));
 		builder.append("\n6. 2025년 목표 : ");
-		builder.append(goal);
+		builder.append(Optional.ofNullable(goal).orElse("-"));
 		builder.append("\n7. 희망하는 스터디 분야 : ");
-		builder.append(desiredStudy);
+		builder.append(Optional.ofNullable(desiredStudy).orElse("-"));
 		builder.append("\n--------------------------------------------");
 		return builder.toString();
 	}

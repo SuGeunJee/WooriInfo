@@ -1,5 +1,7 @@
 package info.view;
 
+import java.util.Optional;
+
 import info.controller.MemberController;
 import info.model.dto.MemberInfoDTO;
 
@@ -75,13 +77,17 @@ public class RunningStartView {
 	private void searchMemberMenu() {
 		System.out.println("\n=== 궁금한 친구 정보 ===");
 		System.out.println("1. 이름으로 검색 🔍");
-		System.out.println("2. 등하교 메이트가 있는 친구 검색 🚶");
+		System.out.println("2. 등하교 메이트가 원하는 친구 검색 🚶");
+		System.out.println("3. 전체 멤버의 이름, 주소 검색 ");
+		System.out.println("4. 전체 멤버의 이름, 전화번호 검색 ");
 		System.out.println("0. 이전 메뉴로 돌아가기");
 
-		int subChoice = getUserInput("\n --> 검색 옵션을 선택하세요 (0-2): ");
+		int subChoice = getUserInput("\n --> 검색 옵션을 선택하세요 (0-3): ");
 		switch (subChoice) {
 		case 1 -> searchByName();
 		case 2 -> searchByMateStatusO();
+		case 3 -> searchAllNamesAndAddresses();
+		case 4 -> searchAllNamesAndPhoneNumbers();
 		case 0 -> System.out.println("이전 메뉴로 돌아갑니다.");
 		default -> System.out.println("잘못된 선택입니다. 다시 시도해주세요.");
 		}
@@ -103,6 +109,20 @@ public class RunningStartView {
 		System.out.println("\n\n등하교 메이트가 있는 친구들 출력했습니다!");
 		System.out.println("------------------------------");
 		
+	}
+	
+	private void searchAllNamesAndAddresses() {
+		System.out.println("\n=== 결과: 모든 친구들의 이름과 주소 목록 ===");
+		MemberController.getAllMembersNameAndAddress();
+		System.out.println("\n모든 친구들의 이름과 주소 목록을 출력했습니다!");
+		System.out.println("------------------------------");
+	}
+	
+	private void searchAllNamesAndPhoneNumbers() {
+		System.out.println("\n=== 결과: 모든 친구들의 이름과 전화번호 목록 ===");
+		MemberController.getAllMembersNamesAndPhoneNumbers();
+		System.out.println("\n모든 친구들의 이름과 전화번호 목록을 출력했습니다!");
+		System.out.println("------------------------------");
 	}
 
 	private void viewMyInfo() {
