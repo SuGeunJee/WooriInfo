@@ -332,8 +332,8 @@ public class MemberDAO {
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
-	            String storedPassword = rs.getString("password");
-	            return storedPassword.equals(password);
+	            String hashedPassword = rs.getString("password");
+	            return BCrypt.checkpw(password, hashedPassword); // BCrypt의 checkpw 메소드 사용
 	        }
 	        return false;
 	        
