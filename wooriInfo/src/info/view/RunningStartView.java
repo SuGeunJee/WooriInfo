@@ -76,7 +76,7 @@ public class RunningStartView {
 
 	private void searchMemberMenu() {
 		System.out.println("\n=== 궁금한 친구 정보 ===");
-		System.out.println("1. 이름으로 검색 🔍");
+		System.out.println("\n1. 이름으로 검색 🔍");
 		System.out.println("2. 등하교 메이트가 원하는 친구 검색 🚶");
 		System.out.println("3. 전체 멤버의 이름, 주소 검색 ");
 		System.out.println("4. 전체 멤버의 이름, 전화번호 검색 ");
@@ -280,8 +280,8 @@ public class RunningStartView {
 
 	//삭제
 	private void deleteMyInfo(String notebookNumber) {
-		String password = getUserInputString("당신의 비밀번호를 입력하세요.: ");
-		String deleteYN = getUserInputString("정말로 삭제 하시겠습니까? (Y/N) ");
+		String password = getUserInputString(" --> 비밀번호를 입력하세요 : ");
+		String deleteYN = getUserInputString(" --> 정말로 삭제 하시겠습니까? (Y/N) ");
 		if (deleteYN.toUpperCase().equals("Y")) {
 			MemberController.deleteMember(notebookNumber, password);
 			System.out.println("\n [삭제 완료되었습니다.]");

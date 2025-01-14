@@ -19,7 +19,7 @@ public class RunningEndView {
 			memberList.stream()
 					.forEach(p -> System.out.println("\n  [" + count.getAndIncrement() + "번]" + "\n" + p));
 		} else {
-			System.out.println("검색 정보 0");
+			System.out.println("\n존재하지 않는 사용자입니다.");
 		}
 	}
 
@@ -34,7 +34,7 @@ public class RunningEndView {
 				System.out.println("\n  [" + (count++) + "번]" + "\n" + p);
 			}
 		} else {
-			System.out.println("검색 정보 0");
+			System.out.println("\n존재하지 않는 사용자입니다.");
 		}
 	}
 
