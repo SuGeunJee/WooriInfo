@@ -3,6 +3,7 @@ package info.controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import info.exception.NotExistException;
 import info.model.MemberDAO;
 import info.model.dto.MemberDTO;
 import info.model.dto.MemberInfoDTO;
@@ -17,7 +18,7 @@ public class MemberController {
 			result = MemberDAO.checkLaptopNumber(laptopNumber);
 		} catch (SQLException s) {
 			s.printStackTrace();
-//			/RunningEndView.showError("새로운 멤버 저장 시 에러 발생");
+			RunningEndView.showError("새로운 멤버 저장 시 에러 발생");
 		}
 		return result;
 	}
@@ -30,7 +31,7 @@ public class MemberController {
 			result = MemberDAO.addMember(memberinfoDto);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("새로운 멤버 저장 시 에러 발생");
+			RunningEndView.showError("새로운 멤버 저장 시 에러 발생");
 		}
 		return result;
 	}
@@ -70,9 +71,6 @@ public class MemberController {
 			e.printStackTrace();
 			RunningEndView.showError("노트북 번호로 해당 멤버의 모든 정보 검색 시 에러 발생");
 		}
-//		} catch (NotExistException x) {
-//			RunningEndView.showError("등록되지 않은 멤버입니다.");
-//		}
 	}
 
 	// 이름으로 해당 멤버의 모든 정보 검색
@@ -91,7 +89,7 @@ public class MemberController {
 			RunningEndView.CommuteMateMemberListView(MemberDAO.getMembersLaptopNumberAndNameByMateStatus());
 		} catch (SQLException e) {
 			e.printStackTrace();
-			// RunningEndView.showError("등하교 메이트 구하는 멤버의 노트북 번호, 이름 검색 시 에러 발생");
+			RunningEndView.showError("등하교 메이트 구하는 멤버의 노트북 번호, 이름 검색 시 에러 발생");
 		}
 	}
 
@@ -102,7 +100,7 @@ public class MemberController {
 			result = MemberDAO.updateName(laptopNumber, newName, password);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 이름 수정");
+			RunningEndView.showError("노트북 번호로 이름 수정 실패");
 		}
 		return result;
 	}
@@ -114,7 +112,7 @@ public class MemberController {
 			result = MemberDAO.updateAddress(laptopNumber, newAddress, password);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 주소 수정");
+			RunningEndView.showError("노트북 번호로 주소 수정 실패");
 		}
 		return result;
 	}
@@ -126,7 +124,7 @@ public class MemberController {
 			result = MemberDAO.updateMateStatus(laptopNumber, newMateStatus, password);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 등하교 메이트 상태 수정");
+			RunningEndView.showError("노트북 번호로 등하교 메이트 상태 수정 실패");
 		}
 		return result;
 	}
@@ -138,7 +136,7 @@ public class MemberController {
 			result = MemberDAO.updatePhoneNumber(laptopNumber, newPhoneNumber, password);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 전화번호 수정");
+			RunningEndView.showError("노트북 번호로 전화번호 수정 실패");
 		}
 		return result;
 	}
@@ -150,7 +148,7 @@ public class MemberController {
 			result = MemberDAO.updateGoal(laptopNumber, newGoal, password);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 목표 수정");
+			RunningEndView.showError("노트북 번호로 목표 수정 실패");
 		}
 		return result;
 	}
@@ -162,7 +160,7 @@ public class MemberController {
 			result = MemberDAO.updateDesiredStudy(laptopNumber, newDesiredStudy, password);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 희망 스터디 분야 수정");
+			RunningEndView.showError("노트북 번호로 희망 스터디 분야 수정 실패");
 		}
 		return result;
 	}
@@ -174,7 +172,7 @@ public class MemberController {
 			result = MemberDAO.deleteMember(laptopNumber, password);
 		} catch (SQLException s) {
 			s.printStackTrace();
-			// RunningEndView.showError("노트북 번호로 해당 멤버의 정보 삭제");
+			RunningEndView.showError("노트북 번호로 해당 멤버의 정보 삭제 실패");
 		}
 		return result;
 	}
