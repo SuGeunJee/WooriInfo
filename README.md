@@ -32,13 +32,15 @@
 ![image (1)](https://github.com/user-attachments/assets/be80f25a-7917-4495-89c8-bf0152b6e456)
 
 ## 🛠 기술 스택
-- **언어:** Java
-- **데이터베이스:** MySQL
-- **보안:** BCrypt
-- **빌드 도구:** Maven
-- **개발 환경:** Spring Tool Suite (STS) / DBeaver
-- **협업툴:** Git / Notion / Slack / Discord
-- **라이브러리:** Lombok / JDBC / jBCrypt
+|  **분류**   |   **기술 스택**   |
+|--------------|-------------|
+| **언어**      | ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)                                                                     |
+| **데이터베이스** | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)                                                                |
+| **보안**      | ![BCrypt](https://img.shields.io/badge/BCrypt-4BCF83?style=for-the-badge&logo=security&logoColor=white)                                                             |
+| **빌드 도구**   | ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)                                                          |
+| **개발 환경**   | ![Spring Tool Suite](https://img.shields.io/badge/Spring%20Tool%20Suite-6DB33F?style=for-the-badge&logo=spring&logoColor=white) ![DBeaver](https://img.shields.io/badge/DBeaver-336791?style=for-the-badge&logo=dbeaver&logoColor=white) |
+| **협업툴**     | ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white) ![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white) |
+| **라이브러리**  | ![Lombok](https://img.shields.io/badge/Lombok-BC1515?style=for-the-badge&logo=lombok&logoColor=white) ![JDBC](https://img.shields.io/badge/JDBC-4479A1?style=for-the-badge&logo=jdbc&logoColor=white) ![jBCrypt](https://img.shields.io/badge/jBCrypt-4BCF83?style=for-the-badge&logo=security&logoColor=white) |
 
 ## 📁 프로젝트 구조
 ```plaintext
@@ -252,6 +254,9 @@ $ touch wooriInfo/src/info/view/.gitkeep
 
 - 지수근
    - JAVA를 이용하여 MVC 패턴을 처음으로 실제 프로젝트에 적용해보면서 각 계층 간의 역할과 데이터 흐름을 체계적으로 이해할 수 있었습니다. 특히 Controller와 DAO 계층을 분리하여 구현하고, View에서 사용자와의 상호작용을 담당하는 구조를 직접 설계하면서 객체지향의 핵심 원리를 실무적으로 경험할 수 있어서 좋았습니다. 또한, JDBC를 통한 데이터베이스 연동 과정에서 Connection, PreparedStatement 등의 개념을 실습을 통해 이해할 수 있었으며, Git을 활용한 협업 과정에서 rebase, merge와 같은 기능들을 다시 한번 확실히 정립할 수 있어 유익한 경험이었다고 생각합니다.
+
+- 최다영
+  - 사전에 Git 커밋 메시지 규칙과 코드 스타일(특히 함수명과 변수명의 일관성)을 명확히 정하고 팀이 합의한 방식을 따르며, 코드 충돌을 최소화하고 작업 이해도를 높일 수 있었습니다. 또한 Git bash를 활용하며 협업 도구 사용법을 익히고, 팀원 간의 작업을 체계적으로 관리하는 방법을 배웠습니다. 특히, JDBC를 사용한 데이터베이스 연동 과정에서, 예외 처리 구조를 설계할 때 자원 반환을 반드시 고려해야 한다는 것을 느꼈습니다. 자원 반환이 제대로 이루어 지지 않으면 시스템 자원이 낭비되고 예상치 못한 오류가 발생할 수 있음을 실감했으며, 이를 방지하기 위해 finally 블록을 활용해 자원반환 코드가 항상 실행되도록 설계하는 등 안정적이고 신뢰성 있는 코드를 작성하기 위해 세부적인 설계까지 철저히 고민해야 함을 다시 깨달았습니다. MVC 패턴을 적용해 코드의 구조를 체계적으로 설계하며 가독성과 유지보수성을 높일 수 있었고, 수정이 필요한 부분을 빠르게 파악하고 개선할 수 있었습니다. 앞으로 더 복잡한 비즈니스 로직을 다루는 프로젝트에서는 서비스 레이어를 추가로 적용해 코드의 구조적 분리와 확장성을 강화해 보고 싶습니다.
 
 - 최윤정
   - 협업할 때 각자 맡은 부분을 구현하는 과정에서 어떤 메소드명을 사용했는지 기록하고 이를 공유하는 것이 중요하다는 것을 알게 되었습니다. 또한, View 구현 시 예상보다 많은 시간을 소요하게 되어, 역할 분담 시 작업 난이도를 사전에 충분히 고려해야 한다는 점을 깨달았습니다. MVC 패턴을 적용하고, 공통 코드나 한 번만 실행되어야 하는 코드는 DBUtil로 분리하는 과정에서 코드의 재사용성과 유지보수성이 크게 향상되었음을 느꼈습니다. 역할을 명확히 분리하고 반복 작업을 최소화함으로써, 새로운 기능 추가나 수정 시 코드 수정 범위가 제한되었고, 확장성이 주는 이점을 체감할 수 있었습니다. 또한, JDBC 연동 과정에서 자원 반환 순서의 중요성을 다시 한 번 깨달았습니다. 같은 파일에서 작업할 때 Git 충돌을 최소화하기 위해 push 여부를 항상 확인하고, pull을 우선적으로 진행하는 습관을 기르게 되었으며, 이 과정에서 Git Bash 명령어에 대한 이해도가 높아졌다고 생각합니다.
